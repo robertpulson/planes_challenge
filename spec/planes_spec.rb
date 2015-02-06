@@ -8,7 +8,12 @@ describe Plane do
     expect(plane.status).to eq "flying"
   end
 
-  it "should be able to take off" do
+  it "can take off" do
+    plane.take_off
+    expect(plane).to respond_to(:take_off)
+  end
+
+  it "changes its status to flying after taking off" do
     plane.take_off
     expect(plane.status).to eq "flying"
   end
