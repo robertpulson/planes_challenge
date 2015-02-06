@@ -37,4 +37,10 @@ class Airport
     planes.delete(plane)
   end
 
+  def empty_airport
+    planes.each do |plane|
+      dispatch(plane)
+    end
+  end
+
 end
