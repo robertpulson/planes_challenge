@@ -1,11 +1,8 @@
 module Weather
 
-  def is_weather_sunny
-    if rand(10) == 0
-      return false
-    else
-      true
-    end
+  def is_weather_sunny?
+    return false if rand(10) == 0
+    return true
   end
 
 end

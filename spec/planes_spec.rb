@@ -21,7 +21,6 @@ describe Plane do
   it "should be able to land in an airport" do
     airport = double :airport
     plane.take_off
-    expect(plane.status).to eq "flying"
     expect(airport).to receive(:receive).with(plane)
     plane.land_at(airport)
     expect(plane.status).to eq "landed"
