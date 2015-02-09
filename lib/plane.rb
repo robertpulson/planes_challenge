@@ -1,20 +1,19 @@
 class Plane
 
+  attr_reader :status
+
   def initialize
-    @status = "flying"
+    @status = :flying
   end
 
-  def status
-    @status
-  end
-
-  def take_off
-    @status = "flying"
+  def take_off_from(airport)
+    airport.dispatch(self)
+    @status = :flying
   end
 
   def land_at(airport)
-    @status = "landed"
     airport.receive(self)
+    @status = :landed
   end
 
 end

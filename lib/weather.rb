@@ -1,8 +1,9 @@
 module Weather
 
+  WEATHER_ODDS = 10
+
   def is_weather_sunny?
-    return false if rand(10) == 0
-    return true
+    !rand(WEATHER_ODDS) == 0
   end
 
 end

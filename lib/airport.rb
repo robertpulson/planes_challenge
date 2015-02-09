@@ -19,8 +19,8 @@ class Airport
   end
 
   def receive(plane)
-    raise "Weather is not sunny. Please come back later!" if is_weather_sunny? == false
-    raise "Airport is full. Please come back later!" if full? == true
+    raise "Weather is not sunny. Please come back later!" unless is_weather_sunny?
+    raise "Airport is full. Please come back later!" if full?
     planes << plane
   end
 
@@ -29,8 +29,7 @@ class Airport
   end
 
   def dispatch(plane)
-    raise "Weather is not sunny. Please try to take off again later!" if is_weather_sunny? == false
-    plane.take_off
+    raise "Weather is not sunny. Please try to take off again later!" unless is_weather_sunny?
     planes.delete(plane)
   end
 
