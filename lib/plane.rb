@@ -1,5 +1,5 @@
+# Plane Class
 class Plane
-
   attr_reader :status
 
   def initialize
@@ -15,5 +15,4 @@ class Plane
     airport.receive(self)
     @status = :landed
   end
-
 end

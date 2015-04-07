@@ -1,12 +1,12 @@
 require_relative 'weather'
 
+# Airport Class
 class Airport
-
   include Weather
 
   DEFAULT_CAPACITY = 6
 
-  def capacity 
+  def capacity
     @capacity ||= DEFAULT_CAPACITY
   end
 
@@ -19,8 +19,8 @@ class Airport
   end
 
   def receive(plane)
-    raise "Weather is not sunny. Please come back later!" unless is_weather_sunny?
-    raise "Airport is full. Please come back later!" if full?
+    fail 'Weather is not sunny. Please come back later!' unless sunny?
+    fail 'Airport is full. Please come back later!' if full?
     planes << plane
   end
 
@@ -29,12 +29,11 @@ class Airport
   end
 
   def dispatch(plane)
-    raise "Weather is not sunny. Please try to take off again later!" unless is_weather_sunny?
+    fail 'Weather is not sunny. Please come back later!' unless sunny?
     planes.delete(plane)
   end
 
   def empty_airport
     planes.each { |plane| dispatch(plane) }
   end
-
 end
